@@ -16,6 +16,7 @@ RSpec.describe User, type: :model do
       expect(col).to include('name')
       expect(col).to include('status')
       expect(col).to include('deleted')
+      expect(col).to include('admin')
 
     end
   end
