@@ -5,6 +5,13 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+#project gems
+gem 'devise'
+gem 'carrierwave', '~> 1.0'
+gem 'bootstrap', '~> 4.0.0.beta'
+gem 'simple_form'
+
+#end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
@@ -36,6 +43,9 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+
+  gem 'faker'
+  gem 'rails-controller-testing'
 end
 
 group :development do
