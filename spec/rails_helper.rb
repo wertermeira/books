@@ -7,7 +7,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 require 'devise'
 
-require_relative 'support/controller_macros'
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 require 'shoulda/matchers'
 require 'database_cleaner'
 Shoulda::Matchers.configure do |config|
@@ -70,6 +70,7 @@ RSpec.configure do |config|
   #devise tests
   config.include Devise::Test::ControllerHelpers, :type => :controller
   config.extend ControllerMacros, :type => :controller
+  config.include RequestSpecHelper, type: :request
   #end
 
   config.before(:suite) do
