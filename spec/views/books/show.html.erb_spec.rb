@@ -14,7 +14,7 @@ RSpec.describe "books/show", type: :view do
     render
     expect(rendered).to match(/Name/)
     expect(rendered).to match(/MyText12345567/)
-    expect(rendered).to match(/Image/)
+    expect(rendered).to match(/<img src='Image'>/)
     expect(rendered).to match(/Author/)
     expect(rendered).to match(/Back/)
     expect(rendered).to match(/Edit/)
