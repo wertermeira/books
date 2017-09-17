@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root to: "users#index"
   resources :users, path: "admin/users"
+  resources :books, path: "admin/books"
 
   devise_for :users, :skip => [:registrations]
     as :user do
