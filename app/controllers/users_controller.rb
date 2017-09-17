@@ -77,7 +77,6 @@ class UsersController < ApplicationController
   end
 
   def password_blank?
-    params[:user][:password].blank? &&
-        params[:user][:password_confirmation].blank?
+    params[:user][:password].blank? && params[:user][:password_confirmation].blank?
   end
 end

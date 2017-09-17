@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-
-  resources :users, path: "admin"
+  root to: "users#index"
+  resources :users, path: "admin/users"
 
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
