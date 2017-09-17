@@ -24,7 +24,7 @@ namespace :seeds do
           name: Faker::Book.title,
           description: Faker::Lorem.paragraph(3),
           author: Faker::Book.author,
-          image:          Faker::LoremPixel.image("200x200", false, types.sample),
+          image:          Faker::LoremPixel.image("344x550", false, types.sample),
           status: true,
           user_id: User.last.id
       )

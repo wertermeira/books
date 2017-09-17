@@ -1,3 +1,20 @@
-// Place all the styles related to the frontend controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import url('https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,700,700i,800,900,900i');
+
+@import "bootstrap/functions";
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+@import "bootstrap/utilities";
+@import "bootstrap/type";
+@import "bootstrap/grid";
+@import "bootstrap/media";
+@import "bootstrap/images";
+@import "bootstrap/reboot";
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+h1,h2,h3,h4,h5,h6 {
+  font-family: "Raleway", Sans-Serif;
+}

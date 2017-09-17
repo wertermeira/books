@@ -12,7 +12,7 @@ gem 'bootstrap', '~> 4.0.0.beta'
 gem 'simple_form'
 gem 'jquery-rails'
 gem 'kaminari'
-
+gem 'vuejs-rails'
 #end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
