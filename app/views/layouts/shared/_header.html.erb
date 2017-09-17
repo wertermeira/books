@@ -10,6 +10,9 @@
         <li class="nav-item <%= "active" if controller_name == "users" %>">
           <%= link_to "users", users_path, class: "nav-link"  %>
         </li>
+        <li class="nav-item <%= "active" if controller_name == "books" %>">
+          <%= link_to "books", books_path, class: "nav-link"  %>
+        </li>
       </ul>
     </div>
   </nav>
