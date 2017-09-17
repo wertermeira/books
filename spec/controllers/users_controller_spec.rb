@@ -138,7 +138,7 @@ RSpec.describe UsersController, type: :controller do
       user = User.create! valid_attributes
       expect {
         delete :destroy, params: {id: user.to_param}, session: valid_session
-      }.to change(User.filed(false), :count).by(1)
+      }.to change(User.filed(true), :count).by(1)
     end
 
     it "redirects to the users list" do

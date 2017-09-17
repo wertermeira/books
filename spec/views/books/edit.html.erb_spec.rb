@@ -2,13 +2,15 @@ require 'rails_helper'
 
 RSpec.describe "books/edit", type: :view do
   before(:each) do
+    set_password = Faker::Internet.password
+    @user = User.create!(name: Faker::Name.name, email: Faker::Internet.email  ,password: set_password, password_confirmation: set_password, admin: true, status: true)
     @book = assign(:book, Book.create!(
-      :name => "MyString",
-      :description => "MyText",
-      :image => "MyString",
-      :author => "MyString",
-      :status => false,
-      :deleted => false
+        name: Faker::Book.title,
+        description: Faker::Lorem.paragraph(2),
+        author: Faker::Book.author,
+        image: Faker::LoremPixel.image("200x200"),
+        status: true,
+        user_id: @user.id
     ))
   end
 
