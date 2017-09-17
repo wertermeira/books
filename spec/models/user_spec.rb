@@ -10,6 +10,7 @@ RSpec.describe User, type: :model do
       expect(User.count).to be 1
     end
   end
+
   context "columns" do
     it "has columns user" do
       col = User.column_names
