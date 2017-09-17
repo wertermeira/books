@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'frontend/index'
+
+  get 'frontend/book'
+
+  get 'frontend/books'
+
   root to: "users#index"
   resources :users, path: "admin/users"
   resources :books, path: "admin/books"
