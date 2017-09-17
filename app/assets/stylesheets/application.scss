@@ -1,2 +1,10 @@
 @import "bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,700,700i,800,900,900i');
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+h1,h2,h3,h4,h5,h6 {
+  font-family: "Raleway", Sans-Serif;
+}

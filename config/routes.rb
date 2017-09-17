@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root to: "users#index"
   
+  root to: "users#index"
   resources :users, path: "admin/users"
 
   devise_for :users, :skip => [:registrations]
