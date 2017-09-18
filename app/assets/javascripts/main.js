@@ -39,8 +39,9 @@ var app = new Vue({
             search = this.search
             var list = this.items.filter(function (item) {
                 var name = item.attributes.name.toLowerCase().includes(search.toLowerCase());
+                var author = item.attributes.author.toLowerCase().includes(search.toLowerCase());
                 console.log(search)
-                return name
+                return name || author
             });
             if (this.sort == 'Author') {
                 return list.sort(function(a, b) {
