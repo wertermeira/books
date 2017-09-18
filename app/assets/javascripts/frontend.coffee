@@ -1,3 +1,4 @@
 #= require jquery3
 #= require vue
-#= require vue-router
+#= require vue-resource
+#= require main

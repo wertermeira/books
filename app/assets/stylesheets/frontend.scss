@@ -9,7 +9,7 @@
 @import "bootstrap/media";
 @import "bootstrap/images";
 @import "bootstrap/reboot";
-
+@import "bootstrap/card";
 body {
   display: flex;
   min-height: 100vh;
@@ -17,4 +17,25 @@ body {
 }
 h1,h2,h3,h4,h5,h6 {
   font-family: "Raleway", Sans-Serif;
+}
+#app {
+  float: left;
+  width: 100%;
+  .search {
+    float: left;
+    width: 100%;
+    padding: 30px;
+    text-align: center;
+    input {
+      background-color: #2E2F30;
+      color: #fff;
+      padding: 10px 20px;
+      border:none;
+      width: 400px;
+      text-align: center;
+    }
+  }
+  .card {
+    margin-bottom: 30px;
+  }
 }

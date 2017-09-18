@@ -1,5 +1,32 @@
 <div class="index">
   <div class="container">
-    
+    <div id="app">
+      <div class="row">
+        <div class="search">
+          <input type="text" v-model="search" placeholder="Search title.."/>
+        </div>
+      </div>
+      <p v-for="item in columns">
+        <a v-class="{ 'active' : sortKey == item}"
+           @click="sortBy(item)">
+          {{ item }}
+        </a>
+      </p>
+      <div class="row">
+        <div class="col-sm-6 col-md-3 d-flex flex-nowrap" v-for="item in filteredList">
+          <div class="card">
+            <img class="card-img-top" v-bind:src="item.attributes.image" alt="Card image cap">
+            <div class="card-body">
+              <h4 class="card-title">{{item.attributes.name}}</h4>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <p>
+                <small><b>Author:</b> {{item.attributes.author}}</small>
+              </p>
+              <a v-bind:href="item.attributes.url" class="btn btn-primary">more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
