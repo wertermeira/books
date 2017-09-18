@@ -10,6 +10,8 @@
 @import "bootstrap/images";
 @import "bootstrap/reboot";
 @import "bootstrap/card";
+@import "bootstrap/custom-forms";
+@import "bootstrap/buttons";
 body {
   display: flex;
   min-height: 100vh;
@@ -18,9 +20,23 @@ body {
 h1,h2,h3,h4,h5,h6 {
   font-family: "Raleway", Sans-Serif;
 }
+.index {
+  margin: 30px 0;
+  h1 {
+    font-size: 4em;
+    text-align: center;
+  }
+}
 #app {
   float: left;
   width: 100%;
+  .selection {
+    float: left;
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    justify-content: flex-end;
+  }
   .search {
     float: left;
     width: 100%;

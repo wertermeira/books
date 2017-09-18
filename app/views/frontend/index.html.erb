@@ -1,19 +1,25 @@
 <div class="index">
   <div class="container">
+    <h1>Books</h1>
     <div id="app">
       <div class="row">
         <div class="search">
           <input type="text" v-model="search" placeholder="Search title.."/>
         </div>
       </div>
-      <p v-for="item in columns">
-        <a v-class="{ 'active' : sortKey == item}"
-           @click="sortBy(item)">
-          {{ item }}
-        </a>
-      </p>
       <div class="row">
-        <div class="col-sm-6 col-md-3 d-flex flex-nowrap" v-for="item in filteredList">
+        <div class="selection">
+          <select v-model="sort" class="custom-select">
+            <option value="">Sort by</option>
+            <option v-for="item in options" v-bind:value="item">
+              {{item}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6 col-md-3 d-flex flex-nowrap" v-for="item in filteredList ">
           <div class="card">
             <img class="card-img-top" v-bind:src="item.attributes.image" alt="Card image cap">
             <div class="card-body">
@@ -26,6 +32,9 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <%= link_to "View all", frontend_books_path, class: "btn btn-info btn-lg" %>
       </div>
     </div>
   </div>

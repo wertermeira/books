@@ -3,18 +3,16 @@ var app = new Vue({
     data: {
         items: [],
         search: '',
-        sortKey: 'name',
-        reverse: 1,
-        columns: ['name', 'author']
+        sort: '',
+        options: [
+            'Name',
+            'Author'
+        ]
     },
     created: function () {
         this.fetchData();
     },
     methods: {
-        sortBy : function(sortKey){
-            this.reverse = (this.reverse == -1) ? 1 : -1 ;
-            this.sortKey = sortKey;
-        },
         fetchData: function () {
             this.$http.get("/api/v1/index").then(function(response){
                 console.log(response.data)
@@ -25,17 +23,26 @@ var app = new Vue({
         }
     },
     computed: {
-
         filteredList: function() {
-            var search = this.search
-            return this.items.filter(function (item) {
+            search = this.search
+            var list = this.items.filter(function (item) {
                 var name = item.attributes.name.toLowerCase().includes(search.toLowerCase());
                 console.log(search)
                 return name
-            })
-        },
-        orderedUsers: function () {
-            return _.orderBy(this.name, 'name')
+            });
+            if (this.sort == 'author') {
+                return list.sort(function(a, b) {
+                    if (a.attributes.author < b.attributes.author){
+                        return -1;
+                    }
+                    if (a.attributes.author > b.attributes.author){
+                        return 1;
+                    }
+                    return 0;
+                });
+            } else {
+                return list;
+            }
         }
     }
 })

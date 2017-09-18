@@ -1,7 +1,7 @@
 module Api
   class V1Controller < ActionController::API
     def index
-      @books = Book.filed(false).order(:id).page(params[:page]).per(12)
+      @books = Book.filed(false).order(name: :asc).page(params[:page]).per(12)
       render json: @books
     end
 
