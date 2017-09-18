@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root to: "frontend#index"
   get 'book/:id', to: "frontend#book", as: "frontend_book"
-
+  get 'admin', to: "users#index"
   resources :users, path: "admin/users"
   resources :books, path: "admin/books"
 
