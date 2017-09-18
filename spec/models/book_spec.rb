@@ -50,7 +50,6 @@ RSpec.describe Book, type: :model do
 
     context "image" do
       it {is_expected.to validate_presence_of(:image)}
-      it "valid url"
     end
 
   end

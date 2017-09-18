@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 
-<title>index.json.jbuilder - RDoc Documentation</title>
+<title>book.js - RDoc Documentation</title>
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "../../../";
@@ -129,9 +129,30 @@
   </div>
 </nav>
 
-<main role="main" aria-label="Page app/views/users/index.json.jbuilder">
+<main role="main" aria-label="Page app/assets/javascripts/book.js">
 
-<p>json.array! @users, partial: &#39;users/user&#39;, as: :user</p>
+<p>var app = new Vue({</p>
+
+<pre>el: &#39;#app&#39;,
+data: {
+    item: []
+},
+created: function () {
+    this.fetchData();
+},
+methods: {
+    fetchData: function () {
+        url = &quot;/api/v1&quot; + window.location.pathname;
+        this.$http.get(url).then(function(response){
+            console.log(JSON.stringify(response.data));
+            this.item = response.data.data.attributes;
+        }, function(){
+            alert(&quot;error&quot;)
+        });
+    }
+}</pre>
+
+<p>})</p>
 </main>
 
 

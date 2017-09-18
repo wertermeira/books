@@ -71,6 +71,8 @@
   
     <li><a href="../../../app/assets/javascripts/application_js.html">application.js</a>
   
+    <li><a href="../../../app/assets/javascripts/book_js.html">book.js</a>
+  
     <li><a href="../../../app/assets/javascripts/cable_js.html">cable.js</a>
   
     <li><a href="../../../app/assets/javascripts/frontend_coffee.html">frontend.coffee</a>
@@ -94,6 +96,8 @@
     <li><a href="../../../app/views/users/show_json_jbuilder.html">show.json.jbuilder</a>
   
     <li><a href="../../../config_ru.html">config.ru</a>
+  
+    <li><a href="../../../db/test_sqlite3.html">test.sqlite3</a>
   
     <li><a href="../../../lib/tasks/seeds_rake.html">seeds.rake</a>
   
@@ -145,18 +149,37 @@ flex-direction: column;</pre>
 
 <pre>font-family: &quot;Raleway&quot;, Sans-Serif;</pre>
 
-<p>} .index {</p>
+<p>} .index, .book {</p>
 
-<pre>margin: 30px 0;
-h1 {
+<pre>h1 {
   font-size: 4em;
+  margin: 30px 0 40px 0;
   text-align: center;
+}</pre>
+
+<p>}</p>
+
+<p>.book {</p>
+
+<pre>.img {
+  max-width: 100%;
+  display: inline-block;
+}
+p {
+  margin: 10px 0;
 }</pre>
 
 <p>} app {</p>
 
 <pre>float: left;
 width: 100%;
+.buttons {
+  margin: 30px 0;
+  button {
+    margin: 0 10px;
+    cursor: pointer;
+  }
+}
 .selection {
   float: left;
   width: 100%;

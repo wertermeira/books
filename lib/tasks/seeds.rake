@@ -1,6 +1,6 @@
 namespace :seeds do
-  desc "TODO"
-  task user: :environment do
+  # user admin
+  def user
     puts "create user admin"
     user = User.create!(
         name: "werter meira",
@@ -13,11 +13,33 @@ namespace :seeds do
   end
 
   desc "TODO"
-  task users: :environment do
+  task user: :environment do
+    user
+  end
+
+  # users list
+  def users(eq = 5)
+    eq.times do
+      name = Faker::Name.name
+      set_password = Faker::Internet.password(8)
+      puts "create user "
+      user = User.create!(
+          name: name,
+          email: Faker::Internet.email,
+          password: set_password,
+          password_confirmation: set_password,
+          admin: true,
+          status: true
+      )
+    end
   end
 
   desc "TODO"
-  task books: :environment do
+  task users: :environment do
+    users(5)
+  end
+
+  def books(eq)
     #types = ['sports', 'animals', 'food', 'city', 'fashion','nature','people','business', 'cats']
     books_cover = [
         'https://cdn.cp.adobe.io/content/2/rendition/31b31ba1-2552-4bb0-8a81-1e907dc293e6/artwork/7b902897-aa35-4673-a58f-e06d7b785a4c/version/3/format/jpg/dimension/width/size/1200',
@@ -28,7 +50,7 @@ namespace :seeds do
         'http://bookcoverarchive.com/wp-content/uploads/2015/09/reason-for-flowers.jpg',
         'http://bookcoverarchive.com/wp-content/uploads/2015/09/Near-to-the-Wild-Heart.jpg'
     ]
-    30.times do
+    eq.times do
       book = Book.new(
           name: Faker::Book.title,
           description: Faker::Lorem.paragraph(3),
@@ -44,6 +66,18 @@ namespace :seeds do
         puts "Error in create"
       end
     end
+  end
+
+  desc "TODO"
+  task books: :environment do
+    books(30)
+  end
+
+  desc "TODO"
+  task start: :environment do
+    user
+    users(5)
+    books(30)
   end
 
 end

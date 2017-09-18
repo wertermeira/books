@@ -128,9 +128,9 @@
 
           
           <div class="method-source-code" id="book-source">
-            <pre><span class="ruby-comment"># File app/controllers/api/v1_controller.rb, line 9</span>
+            <pre><span class="ruby-comment"># File app/controllers/api/v1_controller.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">book</span>
-  <span class="ruby-ivar">@book</span> = <span class="ruby-constant">Book</span>.<span class="ruby-identifier">filed</span>(<span class="ruby-keyword">false</span>).<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-ivar">@book</span> = <span class="ruby-constant">Book</span>.<span class="ruby-identifier">published</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@book</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -164,7 +164,9 @@
           <div class="method-source-code" id="index-source">
             <pre><span class="ruby-comment"># File app/controllers/api/v1_controller.rb, line 4</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
-  <span class="ruby-ivar">@books</span> = <span class="ruby-constant">Book</span>.<span class="ruby-identifier">filed</span>(<span class="ruby-keyword">false</span>).<span class="ruby-identifier">order</span>(<span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-value">:asc</span>).<span class="ruby-identifier">page</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>]).<span class="ruby-identifier">per</span>(<span class="ruby-value">12</span>)
+  <span class="ruby-identifier">page_number</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>].<span class="ruby-identifier">try</span>(<span class="ruby-value">:[]</span>, <span class="ruby-value">:number</span>)
+  <span class="ruby-comment">#per_page = params[:page].try(:[], :size)</span>
+  <span class="ruby-ivar">@books</span> = <span class="ruby-constant">Book</span>.<span class="ruby-identifier">published</span>.<span class="ruby-identifier">order</span>(<span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-value">:asc</span>).<span class="ruby-identifier">page</span>(<span class="ruby-identifier">page_number</span>).<span class="ruby-identifier">per</span>(<span class="ruby-value">8</span>)
   <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@books</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
