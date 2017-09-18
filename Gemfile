@@ -15,6 +15,7 @@ gem 'kaminari'
 gem 'vuejs-rails'
 gem 'rack-cors'
 gem 'active_model_serializers', '~> 0.10.0'
+gem 'rdoc'
 #end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

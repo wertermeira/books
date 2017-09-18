@@ -4,6 +4,8 @@ var app = new Vue({
         items: [],
         search: '',
         sort: '',
+        links: '',
+        page: '/api/v1/index',
         options: [
             'Name',
             'Author'
@@ -13,10 +15,14 @@ var app = new Vue({
         this.fetchData();
     },
     methods: {
+        changePage: function(page){
+            this.page = page;
+        },
         fetchData: function () {
-            this.$http.get("/api/v1/index").then(function(response){
-                console.log(response.data)
-                this.items = response.data.data
+            this.$http.get('/api/v1/index').then(function(response){
+                console.log(JSON.stringify(response.data));
+                this.items = response.data.data;
+                this.links = response.data.links;
             }, function(){
                 alert("error")
             });
@@ -32,12 +38,12 @@ var app = new Vue({
             });
             if (this.sort == 'author') {
                 return list.sort(function(a, b) {
-                    if (a.attributes.author < b.attributes.author){
+                    if (a.attributes.author < b.attributes.author)
                         return -1;
-                    }
-                    if (a.attributes.author > b.attributes.author){
+
+                    if (a.attributes.author > b.attributes.author)
                         return 1;
-                    }
+
                     return 0;
                 });
             } else {
