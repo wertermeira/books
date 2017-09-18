@@ -8,7 +8,4 @@ class FrontendController < ApplicationController
   def book
 
   end
-  # Render all books
-  def books
-  end
 end

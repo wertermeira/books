@@ -30,11 +30,4 @@ RSpec.describe FrontendController, type: :controller do
     end
   end
 
-  describe "GET #books" do
-    it "returns http success" do
-      get :books
-      expect(response).to have_http_status(:success)
-    end
-  end
-
 end

@@ -16,10 +16,16 @@ var app = new Vue({
     },
     methods: {
         changePage: function(page){
-            this.page = page;
+            this.fetchData(page);
         },
-        fetchData: function () {
-            this.$http.get('/api/v1/index').then(function(response){
+        fetchData: function (page) {
+            if (page){
+                url = page
+            }
+            else{
+                url = this.page
+            }
+            this.$http.get(url).then(function(response){
                 console.log(JSON.stringify(response.data));
                 this.items = response.data.data;
                 this.links = response.data.links;
@@ -36,14 +42,12 @@ var app = new Vue({
                 console.log(search)
                 return name
             });
-            if (this.sort == 'author') {
+            if (this.sort == 'Author') {
                 return list.sort(function(a, b) {
                     if (a.attributes.author < b.attributes.author)
                         return -1;
-
                     if (a.attributes.author > b.attributes.author)
                         return 1;
-
                     return 0;
                 });
             } else {

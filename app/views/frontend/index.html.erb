@@ -33,8 +33,9 @@
           </div>
         </div>
       </div>
-      <div class="row d-flex justify-content-center">
-        <%= link_to "View all", frontend_books_path, class: "btn btn-info btn-lg" %>
+      <div class="row d-flex justify-content-center buttons">
+        <button class="btn btn-info btn-sm" v-show="links.prev" @click="changePage(links.prev)">prev</button>
+        <button class="btn btn-info btn-sm" v-show="links.next" @click="changePage(links.next)">next</button>
       </div>
     </div>
   </div>
